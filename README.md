@@ -31,7 +31,7 @@ Route Summary
 
 /events/[id] → Event details page
 
-/items → Product / Item listing
+/items → event / Item listing
 
 /login → Login page
 
