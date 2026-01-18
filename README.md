@@ -6,7 +6,7 @@
 ## Setup & Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/username/NextEvent.git
+git clone https://github.com/chayanatik1994/NextEvent.git
 Navigate to the project folder:
 
 bash
@@ -42,8 +42,6 @@ Dynamic Event Pages using JSON data
 Responsive Hero Section with carousel and slide navigation
 
 Interactive buttons with hover effects
-
-Toast notifications for product creation
 
 Mobile-friendly navigation bar with login link
 
