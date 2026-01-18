@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import eventsData from "@/data/events.json";
 
-// Gradient classes for cards
 const cardGradients = [
   "from-pink-300 to-pink-500",
   "from-indigo-300 to-indigo-500",
@@ -17,7 +16,6 @@ export default function ItemsPage() {
   const [items, setItems] = useState([]);
   const [search, setSearch] = useState("");
 
-  // Check login & set events
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn");
     if (!isLoggedIn) {
