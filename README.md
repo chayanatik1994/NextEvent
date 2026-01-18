@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NextEvent
 
-## Getting Started
+## Short Description
+**NextEvent** is an Event Management web application built with **Next.js 16**. The app showcases dynamic event pages, a responsive hero carousel, interactive buttons, and modern UI/UX features like toast notifications and mobile-friendly navigation. Users can view events, check details, and navigate easily across the app.
 
-First, run the development server:
-
+## Setup & Installation
+1. Clone the repository:
 ```bash
+git clone https://github.com/username/NextEvent.git
+Navigate to the project folder:
+
+bash
+Copy code
+cd NextEvent
+Install dependencies:
+
+bash
+Copy code
+npm install
+Run the development server:
+
+bash
+Copy code
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 in your browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Route Summary
+/ → Home page
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+/events → List of all events
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+/events/[id] → Event details page
 
-## Learn More
+/items → Product / Item listing
 
-To learn more about Next.js, take a look at the following resources:
+/login → Login page
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Implemented Features
+Dynamic Event Pages using JSON data
 
-## Deploy on Vercel
+Responsive Hero Section with carousel and slide navigation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Interactive buttons with hover effects
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Toast notifications for product creation
+
+Mobile-friendly navigation bar with login link
+
+Fully responsive design for desktop, tablet, and mobile
+
+Feature Explanation
+Dynamic Event Page: Loads event details based on the [id] route parameter.
+
+Hero Section / Carousel: Automatically cycles through event images, supports manual navigation with arrows and dots.
+
+
+Navigation Bar: Includes login link, desktop and mobile menus, with responsive design.
+
+Interactive Buttons: Hover effects and subtle animations enhance user experience.
+
+Responsive Design: Adapts layout and elements for all screen sizes.

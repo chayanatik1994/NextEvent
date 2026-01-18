@@ -6,15 +6,12 @@ const Footer = () => {
     <footer className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-10 px-4 sm:px-8 md:px-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center space-y-8 md:space-y-0 md:space-x-8 flex-wrap">
         
-        {/* Logo / Brand */}
         <div className="flex flex-col space-y-2 min-w-[200px]">
           <h2 className="text-2xl font-bold">NextEvent</h2>
           <p className="text-sm sm:text-base text-gray-300">
             Your platform for discovering and managing events effortlessly.
           </p>
         </div>
-
-        {/* Navigation Links */}
         <div className="flex flex-col sm:flex-row flex-wrap gap-y-3 sm:gap-y-0 sm:gap-x-8 min-w-[180px]">
           <a href="#" className="hover:text-gray-300 transition-colors">Home</a>
           <a href="#" className="hover:text-gray-300 transition-colors">Events</a>

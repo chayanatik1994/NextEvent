@@ -1,12 +1,11 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const slides = [
-  { slug: "Event 1", image: "/assets/img/event1.jpg" },
-  { slug: "Event 2", image: "/assets/img/event2.jpg" },
-  { slug: "Event 3", image: "/assets/img/event3.jpg" },
-  { slug: "Event 4", image: "/assets/img/event4.jpg" },
+  { image: "https://i.ibb.co/YTBVbc0r/Wedding.jpg" },
 ];
 
 export const HeroSection = () => {
@@ -22,15 +21,15 @@ export const HeroSection = () => {
   }, [isPaused]);
 
   const nextSlide = () => setCurrent((prev) => (prev + 1) % slides.length);
-  const prevSlide = () =>
-    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+  const prevSlide = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
     <section
-      className="relative w-full h-[70vh] overflow-hidden"
+      className="relative w-full h-[70vh] sm:h-[75vh] md:h-[80vh] overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
+      {/* Slides */}
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -38,22 +37,18 @@ export const HeroSection = () => {
             index === current ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
         >
-          <Image src={slide.image} alt={slide.slug} fill className="object-cover" priority={index === 0} />
-          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-          <div className="relative z-20 flex flex-col items-center justify-center text-center h-full px-6 sm:px-8 md:px-12 space-y-4 sm:space-y-6">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
-              {slide.slug} Event Management
-            </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-200">
-              Wedding • Birthday • Corporate • Private Events
-            </p>
-            <button className="bg-gradient-to-r from-blue-900 to-blue-700 px-8 py-3 sm:px-10 sm:py-4 rounded-lg text-white font-medium shadow-lg hover:from-blue-800 hover:to-blue-600 transform hover:scale-105 transition-all duration-300">
-              Get Started
-            </button>
-          </div>
+          <Image
+            src={slide.image}
+            alt={`Slide ${index + 1}`}
+            fill
+            className="object-cover"
+            priority={index === 0}
+          />
         </div>
       ))}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-3 z-30">
+
+      {/* Slide Dots */}
+      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex gap-3 z-30">
         {slides.map((_, idx) => (
           <button
             key={idx}
@@ -63,6 +58,8 @@ export const HeroSection = () => {
           />
         ))}
       </div>
+
+      {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
         aria-label="Previous Slide"
@@ -77,6 +74,15 @@ export const HeroSection = () => {
       >
         &#10095;
       </button>
+
+      {/* Login Button */}
+    <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30">
+  <Link href="/events">
+    <button className="bg-teal-600 hover:bg-teal-700 text-white text-base px-8 py-3 rounded-lg shadow-md transition transform hover:scale-105">
+      Get Started
+    </button>
+  </Link>
+</div>
     </section>
   );
 };

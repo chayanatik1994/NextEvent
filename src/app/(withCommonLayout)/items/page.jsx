@@ -1,32 +1,10 @@
-// "use client";
-// import React, { useEffect } from "react";
-// import { useRouter } from "next/navigation";
-
-// const ItemsPage = () => {
-//   const router = useRouter();
-
-//   useEffect(() => {
-//     const isLoggedIn = localStorage.getItem("isLoggedIn");
-//     if (!isLoggedIn) {
-//       router.push("/login"); 
-//     }
-//   }, [router]);
-
-//   return (
-//     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4">
-//       <h1 className="text-3xl font-bold text-gray-900 mb-4">Items / Lists Page</h1>
-//       <p className="text-gray-700 text-lg">You are now logged in!</p>
-//     </div>
-//   );
-// };
-
-// export default ItemsPage;
 "use client";
+
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import eventsData from "@/data/events.json";
 
-// Vibrant gradient colors for cards
+// Gradient classes for cards
 const cardGradients = [
   "from-pink-300 to-pink-500",
   "from-indigo-300 to-indigo-500",
@@ -34,11 +12,12 @@ const cardGradients = [
   "from-yellow-300 to-yellow-500",
 ];
 
-const ItemsPage = () => {
+export default function ItemsPage() {
   const router = useRouter();
   const [items, setItems] = useState([]);
   const [search, setSearch] = useState("");
 
+  // Check login & set events
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn");
     if (!isLoggedIn) {
@@ -53,8 +32,8 @@ const ItemsPage = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen py-12 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
           Upcoming Events
         </h1>
@@ -78,7 +57,8 @@ const ItemsPage = () => {
             {filteredItems.map((item, index) => (
               <div
                 key={item.id}
-                className={`flex flex-col w-64 rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl`}
+                onClick={() => router.push(`/events/${item.id}`)}
+                className={`flex flex-col w-64 rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer`}
                 style={{
                   background: `linear-gradient(135deg, ${
                     cardGradients[index % cardGradients.length].split(" ")[0]
@@ -98,26 +78,21 @@ const ItemsPage = () => {
 
                 {/* Card Body */}
                 <div className="p-4 flex flex-col flex-1 text-black">
-                  {/* Name */}
                   <h2 className="font-bold text-lg mb-2">{item.name}</h2>
-
-                  {/* Organizer */}
                   <p className="text-sm mb-1">
-                    <span className="font-semibold">Organizer:</span> {item.organizer}
+                    <span className="font-semibold">Organizer:</span>{" "}
+                    {item.organizer}
                   </p>
-
-                  {/* Capacity */}
                   <p className="text-sm mb-1">
-                    <span className="font-semibold">Capacity:</span> {item.capacity}
+                    <span className="font-semibold">Capacity:</span>{" "}
+                    {item.capacity}
                   </p>
-
-                  {/* Price */}
                   <p className="text-sm mb-3">
                     <span className="font-semibold">Price:</span> {item.price}
                   </p>
 
-                  {/* Details Button */}
                   <button
+                    onClick={() => router.push(`/events/${item.id}`)}
                     className="w-full py-2 text-white font-bold rounded-lg shadow-lg transition duration-300 hover:shadow-xl hover:scale-105"
                     style={{
                       background: "linear-gradient(to right, #14b8a6, #0d9488)",
@@ -133,8 +108,4 @@ const ItemsPage = () => {
       </div>
     </div>
   );
-};
-
-export default ItemsPage;
-
-
+}

@@ -10,9 +10,7 @@ export default function EventsPage() {
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {events.map((event) => (
           <Link key={event.id} href={`/events/${event.id}`}>
-            <a>
-              <EventCard event={event} />
-            </a>
+            <EventCard event={event} />
           </Link>
         ))}
       </div>
